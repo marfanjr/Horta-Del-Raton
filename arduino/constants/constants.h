@@ -10,10 +10,17 @@
 // ACTUATORS PINS
 
 // SERIAL
-#define PORT_PATH /dev/tty.usbmodem621
+#define PORT_PATH /dev/ttyUSB1
 #define BAUD_RATE 9600
 
 // COMMANDS
-#define CMD_LUMINOSITY          0
-#define CMD_HUMIDITY            1
-#define CMD_SOLENOID            2
+#define CMD_LUMINOSITY          	0
+#define CMD_HUMIDITY            	1
+#define CMD_SOLENOID            	2
+#define CMD_LISTENING				3
+
+#define SELF_CONTROL				4
+#define REMOTE_CONTROL				5
+
+#define CMD_CHANGE_OPERATION_MODE	6
+

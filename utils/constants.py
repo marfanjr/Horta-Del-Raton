@@ -29,6 +29,8 @@ class Constants:
                     self.cmdLuminosity = words[2]
                 if words[1] == "CMD_HUMIDITY":
                     self.cmdHumidity = words[2]
+                if words[1] == "CMD_LISTENING":
+                    self.cmdListening = words[2]
                 # ACTUATORS
                 if words[1] == "CMD_SOLENOID":
                     self.cmdSolenoid = words[2]

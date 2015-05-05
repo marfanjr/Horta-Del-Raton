@@ -17,3 +17,9 @@ class Sensors:
         self.comport.write(self.constants.cmdHumidity)
         # return float(self.comport.read())
         return self.comport.read()
+
+    def getListening(self):
+        # make conversions if needed
+        self.comport.write(self.constants.cmdListening)
+        # return float(self.comport.read())
+        return self.comport.read()

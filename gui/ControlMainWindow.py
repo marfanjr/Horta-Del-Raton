@@ -13,8 +13,9 @@ class ControlMainWindow(QtGui.QMainWindow):
         self.ui.setupUi(self)
 
         self.initHw()
-
-        self.initTimer(self, self.showLuminosity, 1000)
+        self.initTimer(self, self.showHumidity, 2000)
+        self.initTimer(self, self.showLuminosity, 3000)
+        self.ui.pushButtonWater.clicked.connect(self.workForMe)
 
     def initHw(self):
         # init the hardware configurations
@@ -34,11 +35,19 @@ class ControlMainWindow(QtGui.QMainWindow):
         self.luminosity = self.sensor.getLuminosity()
         self.showInLabel(self.luminosity)
 
+    def showHumidity(self):
+        self.humidity = self.sensor.getHumidity()
+        self.showInLabel(self.humidity)
 
-        # self.ui.pushButtonWater.clicked.connect(self.someFunc)
+    def showListening(self):
+        self.listening = self.sensor.getListening()
+        self.showInLabel(self.listening)
 
     def showInLabel(self, text):
         self.ui.textBrowser.append(text)
+
+    def workForMe(self):
+        self.ui.textBrowser.append(self.actuator.solenoid(1))
 
 
 if __name__ == "__main__":
